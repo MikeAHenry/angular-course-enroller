@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="enrollment">
+	<head>
+		<title>Welcome to Sapient University</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+		<link rel="stylesheet" href="css/styles.css" type="text/css" />
+	</head>
+	<body>
+		<div class="contained">
+			<div class="module">
+				<h3>Students</h3>
+				<name-id-table ng-controller="StudentController as control"></name-id-table><br>
+				<div
+				 ng-controller="StudentController as control"
+				 ng-show="control.getSelected() != null && control.getSelected().courses.length != 0">
+
+					{{control.getSelected().name}} is enrolled in:
+					<ul>
+						<li ng-repeat="course in control.getSelected().courses track by $index">{{course.name}} </li>
+					</ul>
+				</div>
+			</div>
+			<div class="module">
+				<h3>Courses</h3>
+				<name-id-table ng-controller="CourseController as control"></name-id-table><br>
+				<div
+				 ng-controller="CourseController as control"
+				 ng-show="control.getSelected() != null && control.getSelected().students.length != 0">
+
+					Students enrolled in {{control.getSelected().name}}:
+					<ul>
+						<li ng-repeat="student in control.getSelected().students track by $index">{{student.name}} </li>
+					</ul>
+				</div>
+			</div>
+			
+			<div ng-controller="EnrollmentController as enroller" class="clearfix">
+				<button ng-click="enroller.enroll()" ng-show="enroller.canEnroll()">Enroll</button>
+				<button ng-click="enroller.unEnroll()" ng-show="enroller.itemsSelected() && !enroller.canEnroll()">Unenroll</button>
+			</div>
+		
+			<br>
+	
+		</div>
+		<!-- <name-id-table ng-controller="InstructorController as control"></name-id-table> -->
+		
+		<script src="js/angular.min.js" 	type="text/javascript"></script>
+		<script src="js/classes.js" 		type="text/javascript"></script>
+		<script src="js/data.js" 			type="text/javascript"></script>
+		<script src="js/app.js" 			type="text/javascript"></script>
+	</body>
+</html>

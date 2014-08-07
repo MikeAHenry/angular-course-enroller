@@ -1,0 +1,17 @@
+<table>
+	<tr>
+		<th>ID</th>
+		<th>{{control.name}}</th>
+		<th><a href ng-click="control.showAll()">Show all</a></th>
+	</tr>
+	<tr ng-repeat="dataObject in control.data" ng-show="dataObject.on">
+		<td>{{dataObject.id}}</td>
+		<td ng-class="{selectedRow: control.isSelected(dataObject)}" ng-click="control.select(dataObject)" >{{dataObject.name}}</td>
+		<td><a href ng-click="control.hide(dataObject)">hide</a></td>
+	</tr>
+	<tr>
+		<td>+</td>
+		<td><input ng-model="new_item_name" type="text" placeholder="{{'Add New ' + control.name}}"/></td>
+		<td><button ng-click="control.add(new_item_name); new_item_name = '';">Add</button></td>
+	</tr>
+</table>

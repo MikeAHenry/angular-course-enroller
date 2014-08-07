@@ -1,0 +1,53 @@
+body {
+	width: 80%;
+	margin: 50px auto;
+	background-color: #eee;
+}
+
+.module {
+	float: left;
+	width: 40%;
+	margin-right: 10%;
+}
+
+.clearfix {
+	clear: both;
+}
+
+.contained {
+	background-color: #fff;
+	padding: 5%;
+	border-radius: 10px;
+}
+
+table {
+	width: 100%;
+}
+
+td {
+	padding: 2px 0px;
+}
+
+tr td:first-child {
+	width: 8%;
+	max-width: 20px;
+}
+
+table input {
+	width: 100%;
+}
+
+tr:not(:first-child) td:nth-child(2):hover {
+	background-color: #eee;
+	border-radius: 5px;
+}
+
+tr:not(:first-child) td:nth-child(2):hover, .selectedRow {
+	color: green;
+	background-color: #eee;
+	border-radius: 5px;
+}
+
+td:last-child, th:last-child {
+	text-align: right;
+}
